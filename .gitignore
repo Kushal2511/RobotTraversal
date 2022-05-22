@@ -1,0 +1,8 @@
+# Compiled class file
+*.class
+
+# Target directory
+/target
+
+#Intellij directory
+/.idea
