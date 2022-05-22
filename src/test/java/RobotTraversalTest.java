@@ -79,4 +79,15 @@ public class RobotTraversalTest {
         String finalPos = traversal.traverse("MMRMRMRMMM");
         assertEquals("1 1 W",finalPos);
     }
+
+    @Test
+    void testInvalidMove()  throws InvalidMoveException{
+        RobotTraversal traversal = new RobotTraversal(new Robot(Direction.SOUTH,2,2),new BottomLeftPlane(4,4));
+        assertThrows(IllegalStateException.class,()->{traversal.traverse("SMLMM");});
+    }
+
+    @Test
+    void testInvalidDirection()  throws InvalidMoveException{
+        assertThrows(IllegalStateException.class,()->{new RobotTraversal(new Robot(Direction.find('R'),2,2),new BottomLeftPlane(4,4));});
+    }
 }

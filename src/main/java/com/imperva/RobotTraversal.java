@@ -45,9 +45,7 @@ public class RobotTraversal {
             throw new InvalidMoveException("Invalid start position");
         }
         for(char c : moves.toCharArray()){
-            Move move = Arrays.stream(Move.values())
-                    .filter(dir->Character.toUpperCase(c) ==dir.getMove() )
-                    .findFirst().get();
+            Move move = Move.find(c);
             try{
                 makeNextMove(move);
             }

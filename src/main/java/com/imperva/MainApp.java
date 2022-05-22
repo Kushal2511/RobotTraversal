@@ -17,9 +17,9 @@ public class MainApp {
         int topRightY = Integer.parseInt(topRightCoOrdinates[1]);
         int startRow = Integer.parseInt(robotPos[0]);
         int startCol = Integer.parseInt(robotPos[1]);
-        Direction direction = Arrays.stream(Direction.values())
-                                .filter(dir->Character.toUpperCase(Character.valueOf(robotPos[2].charAt(0))) ==dir.getDir() )
-                                .findFirst().get();
+
+
+        Direction direction = Direction.find(robotPos[2].charAt(0));
 
         var robot = new Robot(direction,startRow,startCol);
         Plane plane = new BottomLeftPlane(topRightX,topRightY);
