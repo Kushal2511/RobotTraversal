@@ -19,10 +19,12 @@ public class RobotTraversal {
         switch (move){
             case LEFT: {
                 robot.turnLeft();
+                robot.setNoOfLeftTurns(robot.getNoOfLeftTurns()+1);
                 break;
             }
             case RIGHT: {
                 robot.turnRight();
+                robot.setNoOfRightTurns(robot.getNoOfRightTurns()+1);
                 break;
             }
             case MAINTAIN:{

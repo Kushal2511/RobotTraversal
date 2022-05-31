@@ -30,6 +30,7 @@ public class MainApp {
         } catch (InvalidMoveException e) {
             e.printStackTrace();
         }
+        System.out.println(robot.getNoOfLeftTurns()+":"+robot.getNoOfRightTurns());
         System.out.println(finalPosition);
     }
 }

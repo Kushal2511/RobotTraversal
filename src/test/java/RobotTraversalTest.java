@@ -74,10 +74,27 @@ public class RobotTraversalTest {
    @Test
     void testStopAtParticlePosition()  throws InvalidMoveException{
         Plane plane = new BottomLeftPlane(4,4);
-        plane.setParticlePosition(2,1);
+        plane.setParticlePosition(1,2);
         RobotTraversal traversal = new RobotTraversal(new Robot(Direction.NORTH,0,0),plane);
         String finalPos = traversal.traverse("MMRMRMRMMM");
-        assertEquals("1 1 W",finalPos);
+        assertEquals("0 2 E",finalPos);
+    }
+
+    @Test
+    void testStopAtParticlePositionMultiple()  throws InvalidMoveException{
+        Plane plane = new BottomLeftPlane(4,4);
+        int[][] particlePositions={  {2,2}, {3,4}};
+        plane.setParticlePosition(particlePositions);
+        RobotTraversal traversal = new RobotTraversal(new Robot(Direction.NORTH,0,0),plane);
+        String finalPos = traversal.traverse("MMRMMRMMM");
+        assertEquals("1 2 E",finalPos);
+    }
+
+    @Test
+    void testInvalidParticleSetPoistion()  throws InvalidMoveException{
+        Plane plane = new BottomLeftPlane(4,4);
+        int[][] particlePositions={  {2,2}, {5,4}};
+        assertThrows(InvalidMoveException.class,()->{plane.setParticlePosition(particlePositions);});
     }
 
     @Test

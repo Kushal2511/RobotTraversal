@@ -5,8 +5,26 @@ public class Robot {
     public Direction direction;
 
     private int[] currentPosition;
+    private int noOfRightTurns = 0;
+    private int noOfLeftTurns = 0;
 
-    public Robot(Direction direction, int row,int col){
+    public int getNoOfRightTurns() {
+        return noOfRightTurns;
+    }
+
+    public void setNoOfRightTurns(int noOfRightTurns) {
+        this.noOfRightTurns = noOfRightTurns;
+    }
+
+    public int getNoOfLeftTurns() {
+        return noOfLeftTurns;
+    }
+
+    public void setNoOfLeftTurns(int noOfLeftTurns) {
+        this.noOfLeftTurns = noOfLeftTurns;
+    }
+
+    public Robot(Direction direction, int row, int col){
         this.direction = direction;
         int[] tempPos = new int[2];
         tempPos[0] =row;
